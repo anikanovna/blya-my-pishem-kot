@@ -1,0 +1,32 @@
+{{ use('/yii/widgets/LinkPager') }}
+
+{{ set(this, 'title', 'Картиночки') }}
+{{ set(this.params, 'breadcrumbs', {0 : {'label' : 'Images', 'url' : 'index'}, 1 : this.title}) }}
+
+<div class="container">
+    {{ link_pager_widget({
+        'pagination': pages,
+    }) }}
+
+    {% for image in modelImages %}
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">{{ image.title }}</h3>
+                    </div>
+                    <div class="panel panel-body">
+                        <div class="row show-grid">
+                            <div class="col-xs-6 col-md-6">
+                                <img src="" style="width: 300px; background-color: yellow;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+    {{ link_pager_widget({
+        'pagination': pages,
+    }) }}
+</div>
